@@ -20,7 +20,8 @@ for tkr_s in ['^GSPC','^RUT','AAPL','AMZN','GOOG','MSFT','DIA','QQQ','SPY','XOM'
     print(tkr_s)
     try:
       chromedriver.get_csv(tkr_s,'history')
-      mlprep.unsplit(tkr_s)
+      # implement later:
+      # mlprep.unsplit(tkr_s)
     except:
       print(tkr_s+' problem: get_csv() or unsplit() exception.')
 'bye'

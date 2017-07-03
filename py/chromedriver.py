@@ -25,7 +25,7 @@ from fractions import Fraction
 from selenium  import webdriver
 from selenium.webdriver.chrome.options import Options
 
-def get_csv(tkr_s='AA',ctype='split'): # valid ctype values: div, split, history
+def get_csv(tkr_s='AAPL',ctype='history'): # valid ctype values: div, split, history
   # Given a tkr I should download a CSV file by getting an href,
   # enhancing the href, and then getting the enhanced href.
   # I should remove previous downloads:
@@ -37,11 +37,11 @@ def get_csv(tkr_s='AA',ctype='split'): # valid ctype values: div, split, history
   # os.path.realpath(__file__) is the path to the script you are looking at.
   # I should declare the location of parent-folder:    
   tkrprice_folder_s = ''.join([os.path.dirname(os.path.realpath(__file__)),'/../'])
-  merged_s          = ''.join([tkrprice_folder_s,'static/CSV/merged/'])
+  old_s             = ''.join([tkrprice_folder_s,'static/CSV/old/'])
   outfolder_s       = ''.join([tkrprice_folder_s,'static/CSV/',ctype,'/'])
   href0_s           = ''.join(['https://finance.yahoo.com/quote/',tkr_s,'/',ctype])
-  # I should get mindate_i_s of the tkr from merged_s:
-  mcsv_s      = ''.join([merged_s,csv_s])
+  # I should get mindate_i_s of the tkr from old_s:
+  mcsv_s      = ''.join([old_s,csv_s])
   tkr_df      = pd.read_csv(mcsv_s).sort_values(['cdate'])
   mindate_s   = tkr_df.cdate.min()
   mindate_dt  = datetime.strptime(mindate_s, '%Y-%m-%d')
@@ -82,5 +82,4 @@ def get_csv(tkr_s='AA',ctype='split'): # valid ctype values: div, split, history
   driver.quit()
   'bye'
   
-
 'bye'
