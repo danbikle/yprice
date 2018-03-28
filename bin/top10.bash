@@ -8,6 +8,9 @@ export SCRIPT=`realpath $0`
 export SCRIPTPATH=`dirname $SCRIPT`
 export PATH=${SCRIPTPATH}:$PATH
 export YPRICE=${SCRIPTPATH}/..
+
+which chromedriver
+
 # export DISPLAY=:0
 export DBUS_SESSION_BUS_ADDRESS=/dev/null # prevents chromedriver 'hang'
 

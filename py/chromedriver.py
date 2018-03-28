@@ -70,6 +70,8 @@ def get_csv(tkr_s='AAPL',ctype='history'): # valid ctype values: div, split, his
     # should be like:
     # 'https://query1.finance.yahoo.com/v7/finance/download/AA?period1=460926308&period2=1495054308&interval=1d&events=split&crumb=pYheK5rafih'
     # I should driver.get() the lnk
+    print('I now try to GET this URL:')
+    print(enhanced_href_s)
     driver.get(enhanced_href_s)
     time.sleep(5)
   except: # selenium.common.exceptions.NoSuchElementException:
