@@ -49,6 +49,8 @@ def get_csv(tkr_s='AAPL',ctype='history'): # valid ctype values: div, split, his
   mindate_s   = tkr_df.cdate.min()
   mindate_dt  = datetime.strptime(mindate_s, '%Y-%m-%d')
   mindate_i_s = datetime.strftime(mindate_dt,'%s')
+  # Actually this should work for all tkrs:
+  mindate_i_s = '-631012345'
   path_to_extension_s = ''.join([tkrprice_folder_s,'ublock/1.12.4_0'])
   chrome_options      = Options()
   chrome_options.add_argument('load-extension=' + path_to_extension_s)
@@ -77,8 +79,10 @@ def get_csv(tkr_s='AAPL',ctype='history'): # valid ctype values: div, split, his
     print(enhanced_href_s)
     driver.get(enhanced_href_s)
     time.sleep(5)
+    print('Should be ready now:')
+    print(outfolder_s+csv_s)
   except: # selenium.common.exceptions.NoSuchElementException:
-    print(tkr_s+' problem: Some exception')
+    print('But, '+tkr_s+' problem: Some exception')
   # I should move the new CSV files to a safe place
   if os.path.isfile(dlcsv_s):
     # delete bad data
