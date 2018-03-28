@@ -1,16 +1,19 @@
-# chromedriver.py
+# coding: utf-8
+"""
+chromedriver.py
 
-# This script should drive chromedriver to get new prices of stocks.
-# ref:
-# http://selenium-python.readthedocs.io/locating-elements.html
-# https://sites.google.com/a/chromium.org/chromedriver/downloads
-# This script works well with chromedriver 2.29
-# python 3.6.1 and selenium (3.4.1)
+This script should drive chromedriver to get new prices of stocks.
+ref:
+http://selenium-python.readthedocs.io/locating-elements.html
+https://sites.google.com/a/chromium.org/chromedriver/downloads
+This script works well with chromedriver 2.29
+python 3.6.1 and selenium (3.4.1)
 
-# Demo:
-# driver = webdriver.Chrome()
-# import chromedriver
-# chromedriver.get_csv('AAPL', 'history')
+Demo:
+driver = webdriver.Chrome()
+import chromedriver
+chromedriver.get_csv('AAPL', 'history')
+"""
 
 import numpy  as np
 import pandas as pd
